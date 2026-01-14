@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>THE BASE INTERNATIONAL</title>
+  <meta name="description" content="THE BASE INTERNATIONAL - Connect. Grow. Succeed.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">THE BASE INTERNATIONAL</h1>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Welcome to THE BASE INTERNATIONAL</h2>
+        <p>Connecting people and ideas across the globe.</p>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <section id="about" class="container card">
+      <h3>About Us</h3>
+      <p>THE BASE INTERNATIONAL is a global hub for collaboration, growth and opportunity. We help individuals and organizations connect, learn, and succeed.</p>
+    </section>
+
+    <section id="services" class="container card">
+      <h3>Services</h3>
+      <ul>
+        <li>Networking & Partnerships</li>
+        <li>Workshops & Events</li>
+        <li>Advisory & Resources</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="container card">
+      <h3>Contact</h3>
+      <p>You can email us directly at <a href="mailto:thebaseinternational@gmail.com">thebaseinternational@gmail.com</a>.</p>
+
+      <!-- Contact form that opens user's email client using mailto: -->
+      <form id="contactForm" onsubmit="return sendMail(event)">
+        <label>
+          Your name
+          <input type="text" name="name" id="name" required>
+        </label>
+        <label>
+          Your email
+          <input type="email" name="email" id="email" required>
+        </label>
+        <label>
+          Message
+          <textarea name="message" id="message" rows="6" required></textarea>
+        </label>
+        <button type="submit" class="btn">Send Email</button>
+      </form>
+
+      <p class="note">Note: This form opens your email client and prepares a message to be sent to the address above. No server is required.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; THE BASE INTERNATIONAL</p>
+    </div>
+  </footer>
+
+  <script>
+    function sendMail(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      const to = 'thebaseinternational@gmail.com';
+      const subject = encodeURIComponent('Website Contact from ' + name);
+      const body = encodeURIComponent('Name: ' + name + "\n" + 'Email: ' + email + "\n\n" + message);
+      const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+      window.location.href = mailto;
+      return false;
+    }
+  </script>
+</body>
+</html>
