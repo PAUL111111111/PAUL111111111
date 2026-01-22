@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Weather Dashboard — THE BASE INTERNATIONAL</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Weather Dashboard</h1>
+      <p class="subtitle">Powered by Open-Meteo (no API key required)</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card search">
+      <form id="searchForm">
+        <input id="q" name="q" type="search" placeholder="Enter city name (e.g. London)" required>
+        <button type="submit">Search</button>
+      </form>
+      <p class="hint">Tip: this demo uses Open-Meteo's free geocoding and forecast APIs — no API key needed.</p>
+    </section>
+
+    <section id="result" class="card hidden">
+      <div class="location">
+        <h2 id="locationName"></h2>
+        <p id="locationCoords" class="muted"></p>
+      </div>
+
+      <div class="weather">
+        <div class="temp">
+          <div id="weatherIcon" class="icon">☀️</div>
+          <div>
+            <div class="value" id="temperature">--</div>
+            <div class="label">Temperature (°C)</div>
+          </div>
+        </div>
+
+        <div class="details">
+          <div><strong>Wind:</strong> <span id="wind">--</span></div>
+          <div><strong>Time:</strong> <span id="time">--</span></div>
+          <div><strong>Weather:</strong> <span id="weatherDesc">--</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="error" class="card error hidden"></section>
+
+    <section class="card instructions">
+      <h3>How it works</h3>
+      <ol>
+        <li>Type a city name and press Search.</li>
+        <li>The app looks up the city's coordinates with Open-Meteo's geocoding API.</li>
+        <li>It then fetches current weather for those coordinates from Open-Meteo.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">&copy; THE BASE INTERNATIONAL</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Security Dashboard — THE BASE INTERNATIONAL</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="container">
+      <h1>Login Security Dashboard</h1>
+      <div id="userArea">
+        <button id="showLogin">Login / Register</button>
+        <button id="logoutBtn" class="hidden">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="auth" class="card">
+      <h2>Sign in</h2>
+      <form id="authForm">
+        <input id="username" placeholder="username" required />
+        <input id="password" type="password" placeholder="password" required />
+        <div class="row">
+          <button type="submit">Login</button>
+          <button id="registerBtn" type="button">Register</button>
+        </div>
+      </form>
+      <p class="hint">This demo stores data in a local SQLite DB; for production use a managed DB and HTTPS.</p>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="card stats">
+        <div><strong>Total logins:</strong> <span id="totalLogins">0</span></div>
+        <div><strong>Last 7 days:</strong> <span id="last7">0</span></div>
+        <div><strong>Failed:</strong> <span id="failed">0</span></div>
+        <div><strong>Unique devices:</strong> <span id="uniqueDevices">0</span></div>
+      </div>
+
+      <div class="card charts">
+        <canvas id="deviceChart" height="120"></canvas>
+      </div>
+
+      <div class="card map" id="map" style="height:280px"></div>
+
+      <div class="card">
+        <h3>Recent Login History</h3>
+        <table id="historyTable">
+          <thead><tr><th>Time</th><th>Device</th><th>Location</th><th>IP</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="card monthly">
+        <h3>Monthly Plans</h3>
+        <div id="plans"></div>
+        <button id="newPlan">New Plan for Current Month</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">&copy; THE BASE INTERNATIONAL</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
